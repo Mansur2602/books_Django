@@ -1,0 +1,55 @@
+    <h1>Создание новой книги:</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        
+        <label for="title">Название книги:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="author">Автор:</label><br>
+        <select id="author" name="author" required>
+            {% for author in authors %}
+                <option value="{{ author.id }}">{{ author.name }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="genre">Жанр:</label><br>
+        <input type="text" id="genre" name="genre" required><br><br>
+
+        <label for="publication_year">Год написание:</label><br>
+        <input type="number" id="publication_year" name="publication_year" required><br><br>
+
+        <label for="publisher">Издатель:</label><br>
+        <select id="publisher" name="publisher" required>
+
+            {% for publisher in publishers %}
+            <option value="{{ publisher.id }}">{{ publisher.name }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label for="publication_date">Дата публикации:</label><br>
+    <input type="date" id="publication_date" name="publication_date" required><br><br>
+
+    <label for="circulation">Тираж:</label><br>
+    <input type="number" id="circulation" name="circulation" required><br><br>
+
+    <label for="year">Год продажи:</label><br>
+    <input type="number" id="year" name="year" required><br><br>
+
+    <label for="price_per_book">Цена за книгу:</label><br>
+    <input type="number" step="0.01" id="price_per_book" name="price_per_book" required><br><br>
+
+    <label for="quantity_sold">Количество проданных книг:</label><br>
+    <input type="number" id="quantity_sold" name="quantity_sold" required><br><br>
+
+    <label for="quantity_sold">Заработано</label><br>
+    <input type="number" id="total_sales_value" name="total_sales_value" required><br><br>
+
+    <button type="submit">Создать книгу</button>
+</form>
+
+<a href="{% url 'book_list' %}">Назад к списку книг</a>
+</body>
+</html>
+
+            

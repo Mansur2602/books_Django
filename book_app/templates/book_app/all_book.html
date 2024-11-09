@@ -1,0 +1,20 @@
+
+<h1> Список книг:</h1>
+       
+        {% for sale in sales %}
+     Название книги: {{sale.publication.book.title}} <br>
+     Автор книги: {{sale.publication.book.author}} <br>
+     Дата рождения автора: {{sale.publication.book.author.birth_year}} <br>
+     Жанр книги:  {{sale.publication.book.genre}} <br>
+     Дата Написание: {{sale.publication.book.publication_year}} <br>
+     Издатель: {{sale.publication.publisher}} <br>
+    Дата публикаций: {{sale.publication.publication_date}} <br>
+     Тираж: {{sale.publication.circulation}} <br>
+     Цена за одну книгу: {{sale.price_per_book}} <br>
+     Продано книг: {{sale.quantity_sold}} <br>
+     Заработано: {{sale.total_sales_value}} <br>
+        <hr>
+            
+        
+        {% endfor %}
+    
